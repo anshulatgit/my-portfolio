@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import { Clock, Calendar, ArrowRight } from "lucide-react";
+import { useState } from "react";
 import type { PostMeta } from "@/lib/mdx";
 
 interface BlogCardProps {
@@ -20,28 +22,24 @@ function formatDate(dateString: string): string {
 }
 
 export function BlogCard({ post }: BlogCardProps) {
+  const [hovered, setHovered] = useState(false);
   const cat = categoryColors[post.category] || categoryColors.general;
+
   return (
     <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
       <article
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
         style={{
           height: "100%",
           padding: "1.5rem",
           borderRadius: "1rem",
-          border: "1px solid rgba(148,163,184,0.12)",
+          border: `1px solid ${hovered ? "rgba(95,116,248,0.3)" : "rgba(148,163,184,0.12)"}`,
           backgroundColor: "rgba(255,255,255,0.03)",
+          transform: hovered ? "translateY(-2px)" : "translateY(0)",
+          boxShadow: hovered ? "0 12px 40px rgba(95,116,248,0.08)" : "none",
           transition: "all 0.3s ease",
           cursor: "pointer",
-        }}
-        onMouseEnter={e => {
-          (e.currentTarget as HTMLElement).style.borderColor = "rgba(95,116,248,0.3)";
-          (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-          (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 40px rgba(95,116,248,0.08)";
-        }}
-        onMouseLeave={e => {
-          (e.currentTarget as HTMLElement).style.borderColor = "rgba(148,163,184,0.12)";
-          (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-          (e.currentTarget as HTMLElement).style.boxShadow = "none";
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1rem" }}>
@@ -58,9 +56,7 @@ export function BlogCard({ post }: BlogCardProps) {
           >
             {post.category}
           </span>
-          <span
-            style={{ display: "flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", opacity: 0.45 }}
-          >
+          <span style={{ display: "flex", alignItems: "center", gap: "0.25rem", fontSize: "0.7rem", opacity: 0.45 }}>
             <Clock size={11} /> {post.readingTime}
           </span>
         </div>
@@ -68,14 +64,16 @@ export function BlogCard({ post }: BlogCardProps) {
         <h2 style={{ fontSize: "0.9375rem", fontWeight: 700, lineHeight: 1.4, marginBottom: "0.5rem" }}>
           {post.title}
         </h2>
-        <p style={{ fontSize: "0.8rem", opacity: 0.55, lineHeight: 1.65, marginBottom: "1rem", display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}>
+        <p style={{
+          fontSize: "0.8rem", opacity: 0.55, lineHeight: 1.65, marginBottom: "1rem",
+          display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden",
+        }}>
           {post.description}
         </p>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem", marginBottom: "1rem" }}>
           {post.tags.slice(0, 3).map(tag => (
-            <span key={tag}
-              style={{ fontSize: "0.65rem", padding: "0.15rem 0.5rem", borderRadius: "9999px", backgroundColor: "rgba(148,163,184,0.08)", opacity: 0.7 }}>
+            <span key={tag} style={{ fontSize: "0.65rem", padding: "0.15rem 0.5rem", borderRadius: "9999px", backgroundColor: "rgba(148,163,184,0.08)", opacity: 0.7 }}>
               {tag}
             </span>
           ))}
