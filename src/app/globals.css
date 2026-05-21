@@ -1,13 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* ── Custom CSS Variables ── */
 :root {
   --gradient-primary: linear-gradient(135deg, #5f74f8 0%, #06b6d4 100%);
-  --gradient-hero: linear-gradient(135deg, #1c1f52 0%, #0f172a 50%, #020617 100%);
-  --glow-primary: 0 0 30px rgba(99, 102, 241, 0.25);
-  --border-subtle: rgba(148, 163, 184, 0.08);
+  --color-brand-50: #f0f4ff;
+  --color-brand-100: #e0eaff;
+  --color-brand-200: #c7d7fe;
+  --color-brand-300: #a4bbfd;
+  --color-brand-400: #7c97fb;
+  --color-brand-500: #5f74f8;
+  --color-brand-600: #4452ef;
+  --color-brand-700: #3840d4;
+  --color-brand-800: #3035aa;
+  --color-brand-900: #2c3287;
+  --color-brand-950: #1c1f52;
+  --color-accent: #06b6d4;
 }
 
 /* ── Smooth scrolling ── */
@@ -29,54 +36,75 @@ html {
 /* ── Selection color ── */
 ::selection {
   background: rgba(99, 102, 241, 0.3);
-  color: inherit;
 }
 
 /* ── Base body styles ── */
 body {
-  @apply bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100;
+  background-color: #ffffff;
+  color: #111827;
   font-feature-settings: "rlig" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── Gradient text utility ── */
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-primary);
-  }
-  .glass {
-    @apply bg-white/10 dark:bg-white/5 backdrop-blur-md border border-white/20 dark:border-white/10;
-  }
-  .card-hover {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-brand-500/10;
-  }
-  .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24;
-  }
-  .container-max {
-    @apply max-w-6xl mx-auto;
-  }
-  .grid-bg {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.07)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
-  }
-  .animate-delay-100 { animation-delay: 100ms; }
-  .animate-delay-200 { animation-delay: 200ms; }
-  .animate-delay-300 { animation-delay: 300ms; }
-  .animate-delay-400 { animation-delay: 400ms; }
-  .animate-delay-500 { animation-delay: 500ms; }
-  .animate-delay-600 { animation-delay: 600ms; }
+.dark body {
+  background-color: #030712;
+  color: #f9fafb;
 }
 
-/* ── Prose overrides for blog ── */
-.prose-custom {
-  @apply prose prose-invert max-w-none;
-  @apply prose-headings:text-white prose-p:text-gray-300;
-  @apply prose-a:text-brand-400 prose-code:text-accent;
-  @apply prose-strong:text-white prose-em:text-gray-200;
+/* ── Gradient text ── */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: var(--gradient-primary);
 }
+
+/* ── Glass effect ── */
+.glass {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ── Grid background ── */
+.grid-bg {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.07)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+.animate-fade-up { animation: fadeUp 0.6s ease-out forwards; }
+.animate-slide-in-left { animation: slideInLeft 0.6s ease-out forwards; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-spin-slow { animation: spin 8s linear infinite; }
+.animate-delay-100 { animation-delay: 100ms; }
+.animate-delay-200 { animation-delay: 200ms; }
+.animate-delay-300 { animation-delay: 300ms; }
+.animate-delay-400 { animation-delay: 400ms; }
+.animate-delay-500 { animation-delay: 500ms; }
 
 /* ── Focus styles ── */
 *:focus-visible {
-  @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-white dark:ring-offset-gray-950;
+  outline: none;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px var(--color-brand-500);
 }

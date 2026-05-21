@@ -18,19 +18,19 @@ export function AnimatedSection({
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-80px" });
 
-  const directionMap = {
-    up:    { hidden: { y: 32 }, visible: { y: 0 } },
-    down:  { hidden: { y: -32 }, visible: { y: 0 } },
-    left:  { hidden: { x: -32 }, visible: { x: 0 } },
-    right: { hidden: { x: 32 }, visible: { x: 0 } },
-    none:  { hidden: {}, visible: {} },
+  const dirMap = {
+    up:    { y: 28 },
+    down:  { y: -28 },
+    left:  { x: -28 },
+    right: { x: 28 },
+    none:  {},
   };
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, ...directionMap[direction].hidden }}
-      animate={isInView ? { opacity: 1, ...directionMap[direction].visible } : {}}
+      initial={{ opacity: 0, ...dirMap[direction] }}
+      animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
       transition={{ duration: 0.6, delay: delay / 1000, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >

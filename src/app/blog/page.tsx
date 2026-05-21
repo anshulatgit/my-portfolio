@@ -13,9 +13,9 @@ export default function BlogPage() {
   const posts = getAllPosts();
 
   return (
-    <div className="pt-16">
-      <section className="section-padding bg-gradient-to-b from-brand-50 dark:from-brand-950/20 to-transparent">
-        <div className="container-max">
+    <div style={{ paddingTop: "4rem" }}>
+      <section style={{ padding: "4rem 1.5rem 2rem", background: "rgba(95,116,248,0.03)" }}>
+        <div style={{ maxWidth: "72rem", margin: "0 auto" }}>
           <AnimatedSection>
             <SectionHeader
               tag="Blog"
@@ -27,14 +27,23 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="section-padding">
-        <div className="container-max">
+      <section style={{ padding: "3rem 1.5rem 5rem" }}>
+        <div style={{ maxWidth: "72rem", margin: "0 auto" }}>
           {posts.length === 0 ? (
-            <div className="text-center py-16 text-gray-500 dark:text-gray-400">
-              <p className="text-lg">No posts yet. Check back soon!</p>
+            <div style={{ textAlign: "center", padding: "4rem 0", opacity: 0.5 }}>
+              <p style={{ fontSize: "1.125rem" }}>No posts yet. Check back soon!</p>
+              <p style={{ fontSize: "0.875rem", marginTop: "0.5rem" }}>
+                Add .mdx files to src/content/blog/ to see them here.
+              </p>
             </div>
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+                gap: "1.5rem",
+              }}
+            >
               {posts.map((post, i) => (
                 <AnimatedSection key={post.slug} delay={i * 80}>
                   <BlogCard post={post} />

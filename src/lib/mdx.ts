@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import readingTime from "reading-time";
 
 const contentDir = path.join(process.cwd(), "src/content/blog");
 
@@ -21,11 +20,19 @@ export interface Post extends PostMeta {
   content: string;
 }
 
+function getReadingTime(text: string): string {
+  const wpm = 200;
+  const words = text.trim().split(/\s+/).length;
+  const minutes = Math.ceil(words / wpm);
+  return `${minutes} min read`;
+}
+
 export function getAllPostSlugs(): string[] {
   if (!fs.existsSync(contentDir)) return [];
-  return fs.readdirSync(contentDir)
-    .filter(f => f.endsWith(".mdx") || f.endsWith(".md"))
-    .map(f => f.replace(/\.mdx?$/, ""));
+  return fs
+    .readdirSync(contentDir)
+    .filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
+    .map((f) => f.replace(/\.mdx?$/, ""));
 }
 
 export function getPostBySlug(slug: string): Post | null {
@@ -39,12 +46,12 @@ export function getPostBySlug(slug: string): Post | null {
       slug,
       title: data.title || slug,
       description: data.description || "",
-      date: data.date || new Date().toISOString(),
+      date: data.date ? String(data.date) : new Date().toISOString(),
       tags: data.tags || [],
       category: data.category || "general",
-      readingTime: readingTime(content).text,
+      readingTime: getReadingTime(content),
       featured: data.featured || false,
-      author: data.author || "Your Name",
+      author: data.author || "Anshul",
       content,
     };
   } catch {
@@ -54,7 +61,7 @@ export function getPostBySlug(slug: string): Post | null {
 
 export function getAllPosts(): PostMeta[] {
   return getAllPostSlugs()
-    .map(slug => getPostBySlug(slug))
+    .map((slug) => getPostBySlug(slug))
     .filter((post): post is Post => post !== null)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }

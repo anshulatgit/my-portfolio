@@ -5,8 +5,8 @@ import { SocialLinks } from "@/components/home/SocialLinks";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Your Name — Researcher, Developer & Educator",
-  description: "Welcome to my personal portfolio and educational guidance platform.",
+  title: "Anshul — Researcher, Developer & Educator",
+  description: "Welcome to my personal portfolio and educational guidance platform. Explore projects, career roadmaps, and student guidance.",
 };
 
 export default function HomePage() {

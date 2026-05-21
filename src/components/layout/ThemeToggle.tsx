@@ -7,12 +7,23 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
-  if (!mounted) return <div className="w-9 h-9" />;
+  if (!mounted) return <div style={{ width: "2.25rem", height: "2.25rem" }} />;
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+      style={{
+        padding: "0.5rem",
+        borderRadius: "0.5rem",
+        background: "transparent",
+        border: "none",
+        cursor: "pointer",
+        color: "inherit",
+        opacity: 0.7,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
       aria-label="Toggle theme"
     >
       {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}

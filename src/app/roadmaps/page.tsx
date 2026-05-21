@@ -6,50 +6,45 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Career Roadmaps — After 10th & 12th",
-  description: "Complete career guidance for students after 10th and 12th grade. Explore science, commerce, arts, engineering, medical, and more career paths.",
+  description: "Complete career guidance for students after 10th and 12th grade in India.",
 };
 
-const colorMap: Record<string, string> = {
-  blue:   "bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800/50 text-blue-700 dark:text-blue-300",
-  green:  "bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800/50 text-green-700 dark:text-green-300",
-  amber:  "bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800/50 text-amber-700 dark:text-amber-300",
-  purple: "bg-purple-50 dark:bg-purple-950/30 border-purple-200 dark:border-purple-800/50 text-purple-700 dark:text-purple-300",
-  red:    "bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800/50 text-red-700 dark:text-red-300",
-  cyan:   "bg-cyan-50 dark:bg-cyan-950/30 border-cyan-200 dark:border-cyan-800/50 text-cyan-700 dark:text-cyan-300",
+const colorMap: Record<string, { bg: string; border: string; text: string }> = {
+  blue:   { bg: "rgba(59,130,246,0.06)",  border: "rgba(59,130,246,0.2)",  text: "#3b82f6" },
+  green:  { bg: "rgba(34,197,94,0.06)",   border: "rgba(34,197,94,0.2)",   text: "#22c55e" },
+  amber:  { bg: "rgba(234,179,8,0.06)",   border: "rgba(234,179,8,0.2)",   text: "#ca8a04" },
+  purple: { bg: "rgba(168,85,247,0.06)",  border: "rgba(168,85,247,0.2)",  text: "#a855f7" },
+  red:    { bg: "rgba(239,68,68,0.06)",   border: "rgba(239,68,68,0.2)",   text: "#ef4444" },
+  cyan:   { bg: "rgba(6,182,212,0.06)",   border: "rgba(6,182,212,0.2)",   text: "#06b6d4" },
 };
 
-const demandBadge = {
-  high: "bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300",
-  medium: "bg-yellow-100 dark:bg-yellow-900/40 text-yellow-700 dark:text-yellow-300",
-  growing: "bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300",
+const demandStyle: Record<string, { bg: string; color: string; label: string }> = {
+  high:    { bg: "rgba(34,197,94,0.1)",  color: "#16a34a", label: "🔥 High Demand" },
+  medium:  { bg: "rgba(234,179,8,0.1)",  color: "#ca8a04", label: "Stable"        },
+  growing: { bg: "rgba(59,130,246,0.1)", color: "#2563eb", label: "📈 Growing"     },
 };
 
 export default function RoadmapsPage() {
   return (
-    <div className="pt-16">
+    <div style={{ paddingTop: "4rem" }}>
       {/* Hero */}
-      <section className="section-padding bg-gradient-to-b from-brand-50 dark:from-brand-950/20 to-transparent">
-        <div className="container-max text-center">
+      <section style={{ padding: "4rem 1.5rem 3rem", background: "rgba(95,116,248,0.03)" }}>
+        <div style={{ maxWidth: "72rem", margin: "0 auto", textAlign: "center" }}>
           <AnimatedSection>
-            <span className="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-950/50 border border-brand-200 dark:border-brand-800/50 rounded-full mb-4">
+            <span style={{ display: "inline-block", padding: "0.25rem 0.75rem", fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--color-brand-600)", backgroundColor: "rgba(95,116,248,0.08)", border: "1px solid rgba(95,116,248,0.2)", borderRadius: "9999px", marginBottom: "1rem" }}>
               Career Guidance
             </span>
-            <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <h1 style={{ fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 800, marginBottom: "1rem", letterSpacing: "-0.03em" }}>
               Find Your <span className="text-gradient">Career Path</span>
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Confused about what to do after 10th or 12th? Explore every option with clarity.
-              Real information, no fluff.
+            <p style={{ fontSize: "1.0625rem", opacity: 0.6, maxWidth: "38rem", margin: "0 auto 2rem" }}>
+              Confused about what to do after 10th or 12th? Every option explained with clarity. Real information, no fluff.
             </p>
-          </AnimatedSection>
-
-          {/* Quick links */}
-          <AnimatedSection delay={200}>
-            <div className="mt-8 flex flex-wrap gap-3 justify-center">
-              <Link href="/roadmaps/after-10th" className="px-5 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-medium rounded-xl transition-colors text-sm">
+            <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}>
+              <Link href="/roadmaps/after-10th" style={{ padding: "0.625rem 1.25rem", background: "linear-gradient(135deg, var(--color-brand-600), var(--color-accent))", color: "white", borderRadius: "0.625rem", textDecoration: "none", fontWeight: 700, fontSize: "0.875rem" }}>
                 After 10th Guide →
               </Link>
-              <Link href="/roadmaps/after-12th" className="px-5 py-2.5 border border-brand-300 dark:border-brand-700 text-brand-700 dark:text-brand-300 hover:bg-brand-50 dark:hover:bg-brand-950/30 font-medium rounded-xl transition-colors text-sm">
+              <Link href="/roadmaps/after-12th" style={{ padding: "0.625rem 1.25rem", border: "1px solid rgba(95,116,248,0.25)", color: "var(--color-brand-600)", borderRadius: "0.625rem", textDecoration: "none", fontWeight: 700, fontSize: "0.875rem" }}>
                 After 12th Guide →
               </Link>
             </div>
@@ -57,41 +52,33 @@ export default function RoadmapsPage() {
         </div>
       </section>
 
-      {/* After 10th section */}
-      <section className="section-padding">
-        <div className="container-max">
+      {/* After 10th */}
+      <section style={{ padding: "4rem 1.5rem" }}>
+        <div style={{ maxWidth: "72rem", margin: "0 auto" }}>
           <AnimatedSection>
-            <SectionHeader
-              tag="Class 10 Students"
-              title="Which Stream After 10th?"
-              subtitle="The most important decision of your student life — made simple."
-            />
+            <SectionHeader tag="Class 10 Students" title="Which Stream After 10th?" subtitle="The most important decision of your student life — made simple." />
           </AnimatedSection>
-
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div style={{ marginTop: "2.5rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "1.25rem" }}>
             {roadmapAfter10th.map((stream, i) => (
-              <AnimatedSection key={stream.id} delay={i * 100}>
-                <div className="p-6 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-brand-300 dark:hover:border-brand-700 hover:shadow-lg transition-all duration-300 h-full">
-                  <div className="text-3xl mb-3">{stream.icon}</div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{stream.title}</h3>
-                  <p className="text-sm text-brand-600 dark:text-brand-400 font-medium mb-3">{stream.subtitle}</p>
-                  <div className="mb-3">
-                    <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Subjects</p>
-                    <div className="flex flex-wrap gap-1">
+              <AnimatedSection key={stream.id} delay={i * 80}>
+                <div style={{ padding: "1.5rem", backgroundColor: "rgba(148,163,184,0.04)", borderRadius: "1rem", border: "1px solid rgba(148,163,184,0.1)", height: "100%" }}>
+                  <div style={{ fontSize: "2rem", marginBottom: "0.75rem" }}>{stream.icon}</div>
+                  <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, marginBottom: "0.25rem" }}>{stream.title}</h3>
+                  <p style={{ fontSize: "0.75rem", color: "var(--color-brand-600)", fontWeight: 600, marginBottom: "1rem" }}>{stream.subtitle}</p>
+                  <div style={{ marginBottom: "0.75rem" }}>
+                    <p style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", opacity: 0.4, marginBottom: "0.4rem" }}>Subjects</p>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem" }}>
                       {stream.subjects.map(s => (
-                        <span key={s} className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full">{s}</span>
+                        <span key={s} style={{ fontSize: "0.65rem", padding: "0.15rem 0.45rem", borderRadius: "9999px", backgroundColor: "rgba(148,163,184,0.08)", opacity: 0.7 }}>{s}</span>
                       ))}
                     </div>
                   </div>
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase mb-2">Career Paths</p>
-                    <div className="flex flex-wrap gap-1">
+                    <p style={{ fontSize: "0.65rem", fontWeight: 700, textTransform: "uppercase", opacity: 0.4, marginBottom: "0.4rem" }}>Career Paths</p>
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: "0.3rem" }}>
                       {stream.paths.slice(0, 3).map(p => (
-                        <span key={p} className="text-xs px-2 py-0.5 bg-brand-50 dark:bg-brand-950/40 text-brand-700 dark:text-brand-300 rounded-full">{p}</span>
+                        <span key={p} style={{ fontSize: "0.65rem", padding: "0.15rem 0.45rem", borderRadius: "9999px", backgroundColor: "rgba(95,116,248,0.08)", color: "var(--color-brand-600)" }}>{p}</span>
                       ))}
-                      {stream.paths.length > 3 && (
-                        <span className="text-xs px-2 py-0.5 text-gray-400">+{stream.paths.length - 3} more</span>
-                      )}
                     </div>
                   </div>
                 </div>
@@ -101,51 +88,46 @@ export default function RoadmapsPage() {
         </div>
       </section>
 
-      {/* After 12th section */}
-      <section className="section-padding bg-gray-50 dark:bg-gray-900/30">
-        <div className="container-max">
+      {/* After 12th */}
+      <section style={{ padding: "4rem 1.5rem", backgroundColor: "rgba(148,163,184,0.03)" }}>
+        <div style={{ maxWidth: "72rem", margin: "0 auto" }}>
           <AnimatedSection>
-            <SectionHeader
-              tag="Class 12 Students"
-              title="Top Career Paths After 12th"
-              subtitle="Every major career option — with exams, colleges, and salary expectations."
-            />
+            <SectionHeader tag="Class 12 Students" title="Top Career Paths After 12th" subtitle="Every major career option — with exams, colleges, and salary expectations." />
           </AnimatedSection>
-
-          <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {careerPathsAfter12th.map((path, i) => (
-              <AnimatedSection key={path.id} delay={i * 80}>
-                <div className={`p-6 rounded-2xl border ${colorMap[path.color]} card-hover h-full`}>
-                  <div className="flex items-start justify-between mb-3">
-                    <span className="text-3xl">{path.icon}</span>
-                    <span className={`text-xs font-semibold px-2 py-1 rounded-full ${demandBadge[path.demandLevel]}`}>
-                      {path.demandLevel === "high" ? "🔥 High Demand" : path.demandLevel === "growing" ? "📈 Growing" : "Stable"}
-                    </span>
+          <div style={{ marginTop: "2.5rem", display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: "1.25rem" }}>
+            {careerPathsAfter12th.map((path, i) => {
+              const c = colorMap[path.color] || colorMap.blue;
+              const d = demandStyle[path.demandLevel];
+              return (
+                <AnimatedSection key={path.id} delay={i * 70}>
+                  <div style={{ padding: "1.5rem", backgroundColor: c.bg, borderRadius: "1rem", border: `1px solid ${c.border}`, height: "100%" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "0.75rem" }}>
+                      <span style={{ fontSize: "2rem" }}>{path.icon}</span>
+                      <span style={{ fontSize: "0.65rem", fontWeight: 700, padding: "0.2rem 0.5rem", borderRadius: "9999px", backgroundColor: d.bg, color: d.color }}>{d.label}</span>
+                    </div>
+                    <h3 style={{ fontSize: "0.9375rem", fontWeight: 700, marginBottom: "0.5rem" }}>{path.title}</h3>
+                    <p style={{ fontSize: "0.8rem", opacity: 0.65, lineHeight: 1.6, marginBottom: "1rem" }}>{path.description}</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "0.35rem", fontSize: "0.8rem" }}>
+                      <p><span style={{ fontWeight: 700 }}>Exams: </span><span style={{ opacity: 0.65 }}>{path.exams.slice(0, 2).join(", ")}</span></p>
+                      <p><span style={{ fontWeight: 700 }}>Top Jobs: </span><span style={{ opacity: 0.65 }}>{path.popularJobs.slice(0, 2).join(", ")}</span></p>
+                      <p><span style={{ fontWeight: 700 }}>Salary: </span><span style={{ color: c.text, fontWeight: 600 }}>{path.salaryRange}</span></p>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold mb-2">{path.title}</h3>
-                  <p className="text-sm opacity-80 mb-4 leading-relaxed">{path.description}</p>
-                  <div className="space-y-2 text-sm">
-                    <p><span className="font-semibold">Exams:</span> {path.exams.slice(0, 2).join(", ")}</p>
-                    <p><span className="font-semibold">Top Jobs:</span> {path.popularJobs.slice(0, 2).join(", ")}</p>
-                    <p><span className="font-semibold">Salary:</span> {path.salaryRange}</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-padding">
-        <div className="container-max text-center">
+      <section style={{ padding: "4rem 1.5rem 5rem" }}>
+        <div style={{ maxWidth: "72rem", margin: "0 auto", textAlign: "center" }}>
           <AnimatedSection>
-            <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-brand-600 to-accent text-white">
-              <h2 className="text-3xl font-bold mb-4">Still Confused? Let's Talk.</h2>
-              <p className="text-lg opacity-90 mb-6 max-w-xl mx-auto">
-                Book a free 1-on-1 career guidance session. Ask me anything about streams, exams, and career options.
-              </p>
-              <Link href="/contact" className="inline-block px-8 py-3 bg-white text-brand-700 font-bold rounded-xl hover:bg-gray-50 transition-colors">
+            <div style={{ padding: "3rem", borderRadius: "1.5rem", background: "linear-gradient(135deg, var(--color-brand-600), var(--color-accent))", color: "white" }}>
+              <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 800, marginBottom: "1rem" }}>Still Confused? Let&apos;s Talk.</h2>
+              <p style={{ opacity: 0.9, marginBottom: "1.5rem", maxWidth: "30rem", margin: "0 auto 1.5rem" }}>Book a free 1-on-1 career guidance session. Ask me anything about streams, exams, and career options.</p>
+              <Link href="/contact" style={{ display: "inline-block", padding: "0.75rem 2rem", backgroundColor: "white", color: "var(--color-brand-700)", fontWeight: 700, borderRadius: "0.75rem", textDecoration: "none" }}>
                 Book Free Session
               </Link>
             </div>
