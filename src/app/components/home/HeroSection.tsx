@@ -5,9 +5,9 @@ import Image from "next/image";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
 
 // ─── Edit these values ───────────────────────────────────────
-const YOUR_NAME = "Anshul Jain";
+const YOUR_NAME = "Anshul";
 const YOUR_TITLE = "Physicist | Optical Engineer | AI Researcher | Career Mentor";
-const YOUR_TAGLINE = "Building AI-powered solutions and guiding students toward meaningful careers.";
+const YOUR_TAGLINE = "Exploring the frontiers of photonics and optical systems. Building AI-powered tools and guiding students toward meaningful careers in technology.";
 const YOUR_LOCATION = "Sikar, Rajasthan, India";
 // ─────────────────────────────────────────────────────────────
 
