@@ -65,7 +65,7 @@ export function AboutSection() {
             >
               <p style={{ fontSize: "1rem", opacity: 0.65, lineHeight: 1.8 }}>
                 I&apos;m Anshul, an MTech student specialising in Optoelectronics and Optical
-                Communication from Jaipur, Rajasthan. I work at the intersection of photonics,
+                Communication from Sikar, Rajasthan. I work at the intersection of photonics,
                 fiber optic systems, and modern computing.
               </p>
               <p style={{ fontSize: "1rem", opacity: 0.65, lineHeight: 1.8 }}>

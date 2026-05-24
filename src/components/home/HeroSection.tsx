@@ -3,11 +3,10 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
 
-const YOUR_NAME = "Anshul";
-const YOUR_TITLE = "MTech — Optoelectronics & Optical Communication";
-const YOUR_TAGLINE =
-  "Exploring the frontiers of photonics and optical systems. Building AI-powered tools and guiding students toward meaningful careers in technology.";
-const YOUR_LOCATION = "Jaipur, Rajasthan, India";
+const YOUR_NAME = "Anshul Jain";
+const YOUR_TITLE = "Physicist | Optical Engineer | AI Researcher | Career Mentor";
+const YOUR_TAGLINE = "Exploring the frontiers of photonics and optical systems. Building AI-powered tools and guiding students toward meaningful careers in technology.";
+const YOUR_LOCATION = "Sikar, Rajasthan, India";
 
 const containerVariants = {
   hidden: {},
