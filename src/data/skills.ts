@@ -1,54 +1,38 @@
 export const skills = [
   {
-    name: "Programming Languages",
+    name: "Optoelectronics & Optical Communication",
+    items: [
+      { name: "Optical Fiber Communication", icon: "🔆" },
+      { name: "Photonics & Optoelectronics", icon: "💡" },
+      { name: "Laser & LED Technology", icon: "🔴" },
+      { name: "DWDM / OTDR", icon: "📡" },
+      { name: "Signal & Image Processing", icon: "📊" },
+      { name: "Zemax / OptiSystem", icon: "🔭" },
+    ],
+  },
+  {
+    name: "Programming & Scientific Computing",
     items: [
       { name: "Python", icon: "🐍" },
-      { name: "TypeScript", icon: "🔷" },
-      { name: "JavaScript", icon: "🟨" },
-      { name: "C++", icon: "⚙️" },
-      { name: "Java", icon: "☕" },
+      { name: "MATLAB", icon: "📐" },
+      { name: "C / C++", icon: "⚙️" },
+      { name: "TensorFlow / PyTorch", icon: "🧠" },
+      { name: "Pandas / NumPy", icon: "🐼" },
     ],
   },
   {
-    name: "Web Development",
+    name: "Hardware & Embedded Systems",
     items: [
-      { name: "React", icon: "⚛️" },
-      { name: "Next.js", icon: "▲" },
-      { name: "Node.js", icon: "🟢" },
-      { name: "Tailwind CSS", icon: "🎨" },
-      { name: "REST APIs", icon: "🔗" },
-      { name: "GraphQL", icon: "◉" },
+      { name: "Arduino", icon: "🤖" },
+      { name: "Embedded Systems", icon: "🔌" },
     ],
   },
   {
-    name: "AI & Data Science",
-    items: [
-      { name: "TensorFlow", icon: "🧠" },
-      { name: "PyTorch", icon: "🔥" },
-      { name: "Scikit-learn", icon: "📊" },
-      { name: "Pandas", icon: "🐼" },
-      { name: "OpenCV", icon: "👁️" },
-      { name: "LangChain", icon: "🔗" },
-    ],
-  },
-  {
-    name: "Tools & Platforms",
+    name: "Tools & Productivity",
     items: [
       { name: "Git & GitHub", icon: "🐙" },
-      { name: "Docker", icon: "🐳" },
-      { name: "Vercel", icon: "▲" },
-      { name: "AWS", icon: "☁️" },
-      { name: "PostgreSQL", icon: "🐘" },
-      { name: "MongoDB", icon: "🍃" },
-    ],
-  },
-  {
-    name: "Research & Communication",
-    items: [
       { name: "LaTeX", icon: "📄" },
-      { name: "Research Writing", icon: "📝" },
-      { name: "Data Visualization", icon: "📈" },
-      { name: "Technical Presentations", icon: "🎯" },
+      { name: "Linux / Bash", icon: "🐧" },
     ],
   },
 ];

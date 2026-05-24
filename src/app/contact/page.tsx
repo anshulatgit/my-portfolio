@@ -32,8 +32,8 @@ export default function ContactPage() {
             <AnimatedSection direction="left">
               <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
                 {[
-                  { icon: <Mail size={20} />, label: "Email", value: "you@youremail.com", href: "mailto:you@youremail.com" },
-                  { icon: <MapPin size={20} />, label: "Location", value: "Jaipur, Rajasthan, India", href: null },
+                  { icon: <Mail size={20} />, label: "Email", value: "ajphysiciston@gmail.com", href: "mailto:ajphysiciston@gmail.com" },
+                  { icon: <MapPin size={20} />, label: "Location", value: "Sikar, Rajasthan, India", href: null },
                   { icon: <Clock size={20} />, label: "Response Time", value: "Usually within 24 hours", href: null },
                 ].map(item => (
                   <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: "1rem" }}>
@@ -55,8 +55,8 @@ export default function ContactPage() {
                   <p style={{ fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em", opacity: 0.4, marginBottom: "0.75rem" }}>Social Profiles</p>
                   <div style={{ display: "flex", gap: "0.75rem" }}>
                     {[
-                      { icon: <Github size={18} />, href: "https://github.com/yourhandle", label: "GitHub" },
-                      { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/yourhandle", label: "LinkedIn" },
+                      { icon: <Github size={18} />, href: "https://github.com/anshulatgit", label: "GitHub" },
+                      { icon: <Linkedin size={18} />, href: "https://linkedin.com/in/anshul-jain-8b2902216", label: "LinkedIn" },
                     ].map(s => (
                       <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}
                         style={{ padding: "0.5rem", borderRadius: "0.5rem", border: "1px solid rgba(148,163,184,0.15)", color: "inherit", display: "flex", alignItems: "center", justifyContent: "center" }}>

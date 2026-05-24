@@ -4,9 +4,10 @@ import Link from "next/link";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
 
 const YOUR_NAME = "Anshul";
-const YOUR_TITLE = "Physist | Optical Engineer | AI Researcher | Career Mentor";
-const YOUR_TAGLINE = "Building AI-powered solutions and guiding students toward meaningful careers in technology and beyond.";
-const YOUR_LOCATION = "Sikar, Rajasthan, India";
+const YOUR_TITLE = "MTech — Optoelectronics & Optical Communication";
+const YOUR_TAGLINE =
+  "Exploring the frontiers of photonics and optical systems. Building AI-powered tools and guiding students toward meaningful careers in technology.";
+const YOUR_LOCATION = "Jaipur, Rajasthan, India";
 
 const containerVariants = {
   hidden: {},
@@ -14,7 +15,11 @@ const containerVariants = {
 };
 const itemVariants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 export function HeroSection() {
@@ -29,7 +34,7 @@ export function HeroSection() {
       }}
     >
       {/* Grid background */}
-      <div className="grid-bg" style={{ position: "absolute", inset: 0, opacity: 1 }} />
+      <div className="grid-bg" style={{ position: "absolute", inset: 0 }} />
 
       {/* Gradient orbs */}
       <div
@@ -119,7 +124,12 @@ export function HeroSection() {
             {/* Title */}
             <motion.p
               variants={itemVariants}
-              style={{ fontSize: "1.25rem", fontWeight: 600, marginBottom: "1rem", opacity: 0.8 }}
+              style={{
+                fontSize: "1.125rem",
+                fontWeight: 600,
+                marginBottom: "1rem",
+                opacity: 0.8,
+              }}
             >
               {YOUR_TITLE}
             </motion.p>
@@ -127,18 +137,30 @@ export function HeroSection() {
             {/* Tagline */}
             <motion.p
               variants={itemVariants}
-              style={{ fontSize: "1rem", opacity: 0.6, lineHeight: 1.75, marginBottom: "2rem", maxWidth: "30rem" }}
+              style={{
+                fontSize: "1rem",
+                opacity: 0.6,
+                lineHeight: 1.75,
+                marginBottom: "2rem",
+                maxWidth: "30rem",
+              }}
             >
               {YOUR_TAGLINE}
             </motion.p>
 
             {/* Location */}
-            <motion.p variants={itemVariants} style={{ fontSize: "0.875rem", opacity: 0.45, marginBottom: "2rem" }}>
+            <motion.p
+              variants={itemVariants}
+              style={{ fontSize: "0.875rem", opacity: 0.45, marginBottom: "2rem" }}
+            >
               📍 {YOUR_LOCATION}
             </motion.p>
 
             {/* CTAs */}
-            <motion.div variants={itemVariants} style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+            <motion.div
+              variants={itemVariants}
+              style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}
+            >
               <Link
                 href="/projects"
                 style={{
@@ -177,7 +199,7 @@ export function HeroSection() {
                 <Download size={16} /> Resume
               </a>
               <Link
-                href="/roadmaps"
+                href="/blog"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -192,19 +214,24 @@ export function HeroSection() {
                   fontSize: "0.9rem",
                 }}
               >
-                Career Roadmaps
+                Read Blog
               </Link>
             </motion.div>
 
             {/* Stats */}
             <motion.div
               variants={itemVariants}
-              style={{ marginTop: "3rem", display: "flex", flexWrap: "wrap", gap: "2.5rem" }}
+              style={{
+                marginTop: "3rem",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "2.5rem",
+              }}
             >
               {[
+                { number: "MTech", label: "Optoelectronics" },
                 { number: "10+", label: "Projects Built" },
                 { number: "500+", label: "Students Guided" },
-                { number: "5+", label: "Research Papers" },
               ].map(({ number, label }) => (
                 <div key={label}>
                   <div
@@ -213,7 +240,9 @@ export function HeroSection() {
                   >
                     {number}
                   </div>
-                  <div style={{ fontSize: "0.8rem", opacity: 0.5, marginTop: "0.25rem" }}>{label}</div>
+                  <div style={{ fontSize: "0.8rem", opacity: 0.5, marginTop: "0.25rem" }}>
+                    {label}
+                  </div>
                 </div>
               ))}
             </motion.div>
@@ -232,7 +261,8 @@ export function HeroSection() {
                   position: "absolute",
                   inset: "-0.5rem",
                   borderRadius: "50%",
-                  background: "linear-gradient(135deg, rgba(95,116,248,0.3), rgba(6,182,212,0.2))",
+                  background:
+                    "linear-gradient(135deg, rgba(95,116,248,0.3), rgba(6,182,212,0.2))",
                   filter: "blur(20px)",
                 }}
               />
@@ -245,7 +275,8 @@ export function HeroSection() {
                   overflow: "hidden",
                   border: "4px solid rgba(255,255,255,0.1)",
                   boxShadow: "0 24px 64px rgba(0,0,0,0.15)",
-                  background: "linear-gradient(135deg, var(--color-brand-500), var(--color-accent))",
+                  background:
+                    "linear-gradient(135deg, var(--color-brand-500), var(--color-accent))",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -255,8 +286,10 @@ export function HeroSection() {
                 }}
               >
                 A
-                {/* When you have a photo, replace the above div content with:
-                    <Image src="/images/profile.jpg" alt="Anshul" fill style={{objectFit:"cover"}} priority /> */}
+                {/* Replace the letter above with your photo:
+                    import Image from "next/image";
+                    <Image src="/images/profile.jpg" alt="Anshul" fill style={{objectFit:"cover"}} priority />
+                */}
               </div>
             </div>
           </motion.div>

@@ -2,10 +2,30 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Github, Linkedin, Twitter, Mail, ExternalLink } from "lucide-react";
 
 const socialLinks = [
-  { icon: Github,   href: "https://github.com/anshulatgit",    label: "GitHub",      desc: "Open source code" },
-  { icon: Linkedin, href: "https://linkedin.com/in/anshul-jain-8b2902216", label: "LinkedIn",  desc: "Professional network" },
-  { icon: Twitter,  href: "https://twitter.com/ans_hul",   label: "Twitter / X", desc: "Thoughts on AI & tech" },
-  { icon: Mail,     href: "mailto:ajphysiciston@gmail.com",          label: "Email",       desc: "Direct email" },
+  {
+    icon: Github,
+    href: "https://github.com/yourhandle",
+    label: "GitHub",
+    desc: "Open source code & projects",
+  },
+  {
+    icon: Linkedin,
+    href: "https://linkedin.com/in/yourhandle",
+    label: "LinkedIn",
+    desc: "Professional network",
+  },
+  {
+    icon: Twitter,
+    href: "https://twitter.com/yourhandle",
+    label: "Twitter / X",
+    desc: "Thoughts on tech & optics",
+  },
+  {
+    icon: Mail,
+    href: "mailto:you@youremail.com",
+    label: "Email",
+    desc: "Direct message",
+  },
 ];
 
 export function SocialLinks() {
@@ -16,15 +36,43 @@ export function SocialLinks() {
         backgroundColor: "rgba(249,250,251,0.3)",
       }}
     >
-      <div style={{ maxWidth: "72rem", margin: "0 auto", textAlign: "center" }}>
+      <div
+        style={{
+          maxWidth: "72rem",
+          margin: "0 auto",
+          textAlign: "center",
+        }}
+      >
         <AnimatedSection>
-          <p style={{ fontSize: "0.7rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.12em", opacity: 0.4, marginBottom: "0.75rem" }}>
+          <p
+            style={{
+              fontSize: "0.7rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.12em",
+              opacity: 0.4,
+              marginBottom: "0.75rem",
+            }}
+          >
             Find Me On
           </p>
-          <h2 style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", fontWeight: 800, marginBottom: "2.5rem" }}>
+          <h2
+            style={{
+              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              fontWeight: 800,
+              marginBottom: "2.5rem",
+            }}
+          >
             Let&apos;s Connect
           </h2>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "1rem",
+              justifyContent: "center",
+            }}
+          >
             {socialLinks.map(({ icon: Icon, href, label, desc }) => (
               <a
                 key={label}
